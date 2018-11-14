@@ -1,22 +1,16 @@
 import React from 'react';
-import * as profil from '../../resources/myProfile.json';
-import Login from '../Login/Login';
+import * as user from '../../resources/myProfile.json';
+import Identity from './identity/Identity';
 import Grid from '@material-ui/core/Grid';
 
 const ResumeView = () => {
-  console.log(profil);
+  console.log(user);
   return (
-    <div>
-      <Login />
-      <Grid container spacing={0}>
-        <Grid item xs={1}>
-          Identity
-        </Grid>
-        <Grid item xs={11}>
-          <h1>{profil.basics.name}</h1>
-        </Grid>
+    <Grid container spacing={0}>
+      <Grid item xs={12}>
+        <Identity userIdentity={user.basics} />
       </Grid>
-    </div>
+    </Grid>
   );
 };
 

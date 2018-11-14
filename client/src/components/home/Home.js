@@ -1,11 +1,9 @@
 import React from 'react';
-import * as profil from '../../resources/myProfile.json';
 import Login from '../Login/Login';
 import ResumeView from '../resume/ResumeView';
 import Grid from '@material-ui/core/Grid';
 
 const Home = () => {
-  console.log(profil);
   return (
     <div>
       <Grid container spacing={0}>
