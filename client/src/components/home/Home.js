@@ -1,0 +1,23 @@
+import React from 'react';
+import * as profil from '../../resources/myProfile.json';
+import Login from '../Login/Login';
+import ResumeView from '../resume/ResumeView';
+import Grid from '@material-ui/core/Grid';
+
+const Home = () => {
+  console.log(profil);
+  return (
+    <div>
+      <Grid container spacing={0}>
+        <Grid item xs={12}>
+          <Login />
+        </Grid>
+        <Grid item xs={12}>
+          <ResumeView />
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
+
+export default Home;
