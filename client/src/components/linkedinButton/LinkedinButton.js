@@ -13,7 +13,7 @@ const styles = {
 
 };
 
-class loginButton extends React.Component {
+class LinkedinButton extends React.Component {
   constructor(props) {
     super(props);
 
@@ -68,9 +68,9 @@ class loginButton extends React.Component {
   }
 }
 
-loginButton.propTypes = {
+LinkedinButton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(loginButton);
+export default withStyles(styles)(LinkedinButton);

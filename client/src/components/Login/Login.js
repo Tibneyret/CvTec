@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialButton from '../SocialButton/SocialButton';
+import LinkedinButton from '../linkedinButton/LinkedinButton';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -30,12 +30,7 @@ class Login extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Make Your Resume
             </Typography>
-            <div className="Login">
-              <SocialButton
-              >
-                Login with linkedin
-              </SocialButton>
-            </div>
+            <LinkedinButton />
           </Toolbar>
         </AppBar >
       </div >
