@@ -16,9 +16,6 @@ const styles = {
 };
 
 class Login extends React.Component {
-  constructor(props) {
-    super();
-  }
 
   render() {
     const { classes } = this.props;
