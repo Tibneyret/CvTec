@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 
 const color1 = 'black',
   color2 = 'white',
@@ -9,10 +9,10 @@ const color1 = 'black',
 
 export const styles = {
   headExperiences: {
-    background: '#cfe0e8',
+    background: '#fbefcc',
     writingMode: 'vertical-rl',
     textOrientation: 'upRight',
-    color: '#87bdd8',
+    color: '#e0876a',
     padding: '25px',
     fontWeight: 'Bold'
   },
@@ -30,11 +30,11 @@ export const styles = {
     },
     '& h3': {
       fontSize: '1.75em',
-      color: '#87bdd8'
+      color:'#f4a688'
     },
     '& h4': {
       fontSize: '1.2em',
-      color: '#b7d7e8',
+      color:'#f9ccac',
       marginBottom: '1.2em'
     },
   },
@@ -84,29 +84,28 @@ export const styles = {
   }
 };
 
-class ListExperiences extends React.Component {
-
+class ListFormations extends Component {
   render() {
     const { classes } = this.props;
     return (
       <div>
         <Grid container className={classes.container} spacing={0}>
           <Grid item xs={1} className={classes.headExperiences}>
-            Professional experiences
+            Formations
           </Grid>
           <Grid item xs={11}>
-            {this.props.userExperiences.map((exp, key) =>
+            {this.props.userFormations.map((form, key) =>
               <ul key={key} className={classes.timeline}>
                 <li className={classes.timelineEvent}>
                   <label className={classes.timelineEventIcon}/>
                   <div className={classes.timelineEventCopy}>
                     <h5 className={classes.timelineEventThumbnail}>
                       {/* todo : afficher correctement les dates, et faire une fonction pour quand il n'y a pas de date => afficher 'aujourd'hui' */}
-                      {exp.startDate} {exp.endDate ? 'to ' + exp.endDate : ''}
+                      {form.startDate} {form.endDate ? 'to ' + form.endDate : ''}
                     </h5>
-                    <h3>{exp.position}</h3>
-                    <h4>{exp.company}</h4>
-                    <p>{exp.summary}</p>
+                    <h3>{form.institution}</h3>
+                    <h4>{form.studyType}</h4>
+                    <p>{form.area}</p>
                   </div>
                 </li>
               </ul>)}
@@ -117,9 +116,9 @@ class ListExperiences extends React.Component {
   }
 }
 
-ListExperiences.propTypes = {
-  userExperiences: PropTypes.array.isRequired,
+ListFormations.propTypes = {
+  userFormations: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ListExperiences);
+export default withStyles(styles)(ListFormations);
