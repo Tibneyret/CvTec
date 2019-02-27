@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passportLinkedIn = require('../auth/linkedin');
+var userDatas = require('../mock/myProfile')
 
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
@@ -12,6 +13,14 @@ router.get('/Error', function (req, res, next) {
 
 router.get('/Home', function (req, res, next) {
   res.render('home', { title: 'Home' });
+});
+
+router.get('/user', (req, res) => {
+  res.status(200).send({
+    success: 'true',
+    message: 'user datas loaded successfully',
+    user: userDatas
+  })
 });
 
 router.get('/auth/linkedin',
