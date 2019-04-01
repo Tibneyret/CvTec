@@ -85,6 +85,21 @@ export const styles = {
 };
 
 class ListFormations extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      formations: []
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userFormations !== prevProps.userFormations) {
+      this.setState({
+        formations: this.props.userFormations
+      });
+    }
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -94,7 +109,7 @@ class ListFormations extends Component {
             Formations
           </Grid>
           <Grid item xs={11}>
-            {this.props.userFormations.map((form, key) =>
+            {this.state.formations && this.state.formations.map((form, key) =>
               <ul key={key} className={classes.timeline}>
                 <li className={classes.timelineEvent}>
                   <label className={classes.timelineEventIcon}/>
@@ -117,7 +132,7 @@ class ListFormations extends Component {
 }
 
 ListFormations.propTypes = {
-  userFormations: PropTypes.array.isRequired,
+  userFormations: PropTypes.array,
   classes: PropTypes.object.isRequired,
 };
 

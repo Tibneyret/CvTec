@@ -18,6 +18,20 @@ const styles = {
   }
 };
 class Identity extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state= {
+      identity: {}
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userIdentity !== prevProps.userIdentity) {
+      this.setState({
+        identity: this.props.userIdentity
+      });
+    }
+  }
 
   render() {
     const { classes } = this.props;
@@ -28,7 +42,7 @@ class Identity extends React.Component {
             Identity
           </Grid>
           <Grid item xs={11}>
-            <h1 className={classes.nameIdentity}>{this.props.userIdentity.name}</h1>
+            <h1 className={classes.nameIdentity}>{this.state.identity.name}</h1>
           </Grid>
         </Grid>
       </div>
@@ -37,7 +51,7 @@ class Identity extends React.Component {
 }
 
 Identity.propTypes = {
-  userIdentity: PropTypes.object.isRequired,
+  userIdentity: PropTypes.object,
   classes: PropTypes.object.isRequired,
 };
 
