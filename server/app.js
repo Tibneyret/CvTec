@@ -5,7 +5,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var swig = require('swig');
 var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
@@ -27,14 +26,7 @@ mongoose.connect('mongodb://localhost/db', {
 }).catch(e => {
   console.log('Error while DB connecting');
   console.log(e);
-});;
-
-
-// *** view engine *** //
-var swig = new swig.Swig();
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
-
+});
 
 // *** static directory *** //
 app.set('views', path.join(__dirname, 'views'));
