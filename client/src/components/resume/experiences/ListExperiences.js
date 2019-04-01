@@ -86,6 +86,22 @@ export const styles = {
 
 class ListExperiences extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state= {
+      experiences: []
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.userExperiences !== prevProps.userExperiences) {
+      this.setState({
+        experiences: this.props.userExperiences
+      });
+    }
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -95,7 +111,7 @@ class ListExperiences extends React.Component {
             Professional experiences
           </Grid>
           <Grid item xs={11}>
-            {this.props.userExperiences.map((exp, key) =>
+            {this.state.experiences.map((exp, key) =>
               <ul key={key} className={classes.timeline}>
                 <li className={classes.timelineEvent}>
                   <label className={classes.timelineEventIcon}/>
@@ -118,7 +134,7 @@ class ListExperiences extends React.Component {
 }
 
 ListExperiences.propTypes = {
-  userExperiences: PropTypes.array.isRequired,
+  userExperiences: PropTypes.array,
   classes: PropTypes.object.isRequired,
 };
 

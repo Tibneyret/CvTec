@@ -6,28 +6,26 @@ import { getUser } from '../../services/apiCall';
 import Grid from '@material-ui/core/Grid';
 
 class ResumeView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       user: {
-        // work: [],
-        // formation: []
+        basics: {},
+        work: [],
+        formation: []
       },
     };
   }
-
   
   componentDidMount(){
-    console.log('getuser');
-    this.setState({user: getUser()});
+    getUser().then( (response) => {
+      this.setState({
+        user: response
+      });
+    })
   }
-
+  
   renderResume() {
-    if (this.state.user === {}) {
-      return (
-        <div> Empty </div>
-      );
-    }else {
       return (
         <div>
           <Grid container spacing={0}>
@@ -39,7 +37,6 @@ class ResumeView extends React.Component {
           </Grid>
         </div>
       )
-    }
   }
 
   render() {
