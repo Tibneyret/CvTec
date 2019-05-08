@@ -16,7 +16,7 @@ function ResumeView() {
     getUser().then( (response) => {
       setUser(response);
     });
-  });
+  }, []);
 
   return (
     <div>
